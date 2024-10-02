@@ -1,7 +1,12 @@
 import express from "express";
 import mongoose from "mongoose";
-
+import cors from "cors"; // Import the cors package
+const corsOptions = {
+  origin: ['http://localhost:3000','https://lit-envi.vercel.app/'],
+  credentials: true // Enable CORS credentials
+};
 const app = express();
+app.use(cors(corsOptions));
 app.use(express.json()); // Middleware to parse JSON requests
 
 // MongoDB connection
